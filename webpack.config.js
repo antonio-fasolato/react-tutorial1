@@ -8,6 +8,9 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
   entry: APP_PATH,
+   resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: BUILD_PATH,
     filename: 'bundle.js'
@@ -17,6 +20,11 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style', 'css'],
+        include: APP_PATH
+      },
+      {
+        test: /\.jsx?$/,
+        loaders: ['babel'],
         include: APP_PATH
       }
     ]
